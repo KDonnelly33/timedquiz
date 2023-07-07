@@ -22,6 +22,9 @@ var startButton = document.getElementById("start-button");
 var questionDisplay = document.getElementById("question");
 var answerOptions = document.getElementById("answer");
 var resultDisplay = document.getElementById("result");
+var timerDisplay = document.getElementById("timer");
+var timer;
+var timeleft;
 let currentQuestionIndex = 0;
 let score = 0;
 // when i click the start button the first question should appear
@@ -29,9 +32,15 @@ startButton.addEventListener("click", function () {
     //    hide the start button
     startButton.style.display = "none";
     // show the first question
-
+    timeleft = 60;
+    timer = setInterval(updateTimer, 1000);
     showQuestion(0);
 });
+// function to update timer
+function updateTimer() {
+    timeleft--;
+    document.getElementById("timer").textContent = timeleft;
+}
 //    creates funtion to show the question
 function showQuestion(questionIndex) {
     var currentQuestion = quizQuestions[questionIndex];
@@ -59,17 +68,18 @@ function selectAnswer(event) {
     }
     else {
         resultDisplay.textContent = "Incorrect!";
+        timeleft -= 10;
     }
 
     currentQuestionIndex++;
     //  checks to see if quiz is over and shows next question
-    
+
     if (currentQuestionIndex < quizQuestions.length) {
         showQuestion(currentQuestionIndex);
-       
+
     }
     else {
-        endQuiz();        
+        endQuiz();
     }
 }
 
