@@ -3,11 +3,11 @@ const quizQuestions = [
     {
       question: "What is Does CSS stand for?",
       options: ["Cascading Style Sheets", "Concave Sytle Sheets", "Cascading Sheet Styles", "All the above"],
-      answer: 1
+      answer: 0
     },
     {question: "What is the correct HTML for referring to an external style sheet?",
       options: ["<stylesheet>mystyle.css</stylesheet>", "<link rel='stylesheet' type='text/css' href='mystyle.css'>", "<style src='mystyle.css'>", "<link href='mystyle.css'>"],
-      answer: 2
+      answer: 1
     } ,  
     // Add more questions here
   ];
@@ -15,6 +15,8 @@ const quizQuestions = [
     var startButton = document.getElementById("start-button");
     var questionDisplay = document.getElementById("question");
     var answerOptions = document.getElementById("answer");
+    var resultDisplay = document.getElementById("result");
+    let currentQuestionIndex = 0;
     // when i click the start button the first question should appear
     startButton.addEventListener("click", function() {
     //    hide the start button
@@ -29,19 +31,33 @@ const quizQuestions = [
         questionDisplay.textContent = currentQuestion.question;
 // clear answer options
 answerOptions.innerHTML = "";
-// loop through the answer options
+// loop through the answer options and create a button for each one
 
 for (let i = 0; i < currentQuestion.options.length; i++) {
     var option = document.createElement("button");
     option.textContent = currentQuestion.options[i];
     option.addEventListener("click", selectAnswer);
     answerOptions.appendChild(option);
-
-
-    }}
+}}
+// function to select answer
     function selectAnswer(event) {
         const selectedOption = event.target;
         const selectedAnswer = selectedOption.textContent;
         const currentQuestion = quizQuestions[currentQuestionIndex];
+    // logic to see if answer is correct
+    if (selectedAnswer === currentQuestion.options[currentQuestion.answer]) {
+       resultDisplay.textContent = "Correct!";
     }
-      
+    else {
+        resultDisplay.textContent = "Incorrect!";
+    }
+    
+    currentQuestionIndex++; 
+    // function to show next question and checks to see if quiz is over
+    function nextQuestion() {
+        if (currentQuestionIndex < quizQuestions.length) {
+            endQuiz();
+        }
+        else {
+            showQuestion()
+    }}}
