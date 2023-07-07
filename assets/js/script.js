@@ -23,6 +23,7 @@ var questionDisplay = document.getElementById("question");
 var answerOptions = document.getElementById("answer");
 var resultDisplay = document.getElementById("result");
 let currentQuestionIndex = 0;
+let score = 0;
 // when i click the start button the first question should appear
 startButton.addEventListener("click", function () {
     //    hide the start button
@@ -54,6 +55,7 @@ function selectAnswer(event) {
     // logic to see if answer is correct
     if (selectedAnswer === currentQuestion.options[currentQuestion.answer]) {
         resultDisplay.textContent = "Correct!";
+        score++;
     }
     else {
         resultDisplay.textContent = "Incorrect!";
@@ -77,5 +79,6 @@ function endQuiz() {
     questionDisplay.style.display = "none";
     // hide answer options
     answerOptions.style.display = "none";
- 
+    // show score
+    resultDisplay.textContent = "Your score is " + score;
 }
