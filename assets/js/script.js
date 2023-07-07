@@ -13,7 +13,7 @@ const quizQuestions = [
   ];
     // Define variables
     var startButton = document.getElementById("start-button");
-
+    var questionDisplay = document.getElementById("question");
     // when i click the start button the first question should appear
     startButton.addEventListener("click", function() {
     //    hide the start button
@@ -25,8 +25,16 @@ const quizQuestions = [
 //    creates funtion to show the question
     function showQuestion(questionIndex) {
         var currentquestion = quizQuestions[questionIndex];
-questionDisplay.textContent = currentquestion.question;
+        questionDisplay.textContent = currentquestion.question;
+// clear answer options
+// answerOptions.innerHTML = "";
+// loop through the answer options
+for (var i = 0; i < currentquestion.options.length; i++) {
+var option = document.createElement("button");
+option.textContent = currentquestion.options[i];
+option.addEventListener("click", answerSelect);
+answer.Container.appendChild(option);
 
 
 
-    }
+    }}
