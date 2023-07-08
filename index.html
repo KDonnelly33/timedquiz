@@ -15,10 +15,16 @@
         <div id = "answer"></div>
         <div id = "result"></div>
         <div id = "timer"></div>
-        <form id = "hiscore" class = "hidden">
+        <form id = "submit" class = "hidden">
             <input type="text" id="initials" placeholder="Enter Initials">
-            <button type="submit" id="submit">Save score</button>
+            <button type="submit" id="submit-button">Save score</button>
         </form>
+        <div id = "highscore" class = "hidden">
+            <h2>Highscores</h2>
+            <ul id="highscore-list"></ul>
+            <button id="clear">Clear Highscores</button>
+            <button id="go-back">Retake Quiz!</button>
+            </div>
     </div>
     <script src="./assets/js/script.js"></script>
 </body>

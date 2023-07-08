@@ -23,7 +23,11 @@ var questionDisplay = document.getElementById("question");
 var answerOptions = document.getElementById("answer");
 var resultDisplay = document.getElementById("result");
 var timerDisplay = document.getElementById("timer");
-var hiscoreDisplay = document.getElementById("hiscore");
+var submitDisplay = document.getElementById("submit");
+var submitButton = document.getElementById("submit-button");
+var highscoreDisplay = document.getElementById("highscore");
+var scoreDisplay = document.getElementById("highscore-list");
+var goBackButton = document.getElementById("go-back");
 var timer;
 var timeleft;
 let currentQuestionIndex = 0;
@@ -99,9 +103,55 @@ function endQuiz() {
     answerOptions.style.display = "none";
     // show score
     resultDisplay.textContent = "Your score is " + score;
-   
+
     timerDisplay.style.display = "none";
     // show input and button
-    hiscoreDisplay.classList.remove("hidden");
-
+    submitDisplay.classList.remove("hidden");
+    highscoreDisplay.classList.remove("hidden");
 }
+//  save initials and score to local storage and dislay on highscore page
+submitButton.addEventListener("click", function () {
+    event.preventDefault();
+    // get initials
+    var initials = document.getElementById("initials").value;
+    // save initials and score to local storage
+    localStorage.setItem("initials", initials);
+    localStorage.setItem("score", score);
+
+    //    display initials and score in highscore list
+    var li = document.createElement("li");
+    li.textContent = initials + " - " + score;
+    scoreDisplay.appendChild(li);
+    // hide submit button
+    submitDisplay.style.display = "none";
+    // show highscore list
+    highscoreDisplay.style.display = "block";
+
+});
+// have go back button start quiz over
+goBackButton.addEventListener("click", function () {
+    // show question
+    questionDisplay.style.display = "block";
+    // show answer options
+    answerOptions.style.display = "block";
+    // hide score
+    resultDisplay.textContent = "";
+    // hide highscore list
+    highscoreDisplay.style.display = "none";
+    // hide input and button
+    submitDisplay.style.display = "none";
+    // show timer
+    timerDisplay.style.display = "block";
+    // reset timer
+    timeleft = 60;
+    // reset score
+    score = 0;
+    // reset current question index
+    currentQuestionIndex = 0;
+    // show first question
+    showQuestion(0);
+    // start timer
+    timer = setInterval(updateTimer, 1000);
+});
+
+
