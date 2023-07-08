@@ -128,12 +128,13 @@ submitButton.addEventListener("click", function () {
     highscoreDisplay.style.display = "block";
 
 });
+
 // have go back button start quiz over
 goBackButton.addEventListener("click", function () {
     // show question
     questionDisplay.style.display = "block";
     // show answer options
-    answerOptions.style.display = "block";
+    answerOptions.style.display = "flex";
     // hide score
     resultDisplay.textContent = "";
     // hide highscore list
