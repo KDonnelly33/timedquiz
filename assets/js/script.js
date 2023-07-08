@@ -23,6 +23,7 @@ var questionDisplay = document.getElementById("question");
 var answerOptions = document.getElementById("answer");
 var resultDisplay = document.getElementById("result");
 var timerDisplay = document.getElementById("timer");
+var hiscoreDisplay = document.getElementById("hiscore");
 var timer;
 var timeleft;
 let currentQuestionIndex = 0;
@@ -38,9 +39,16 @@ startButton.addEventListener("click", function () {
 });
 // function to update timer
 function updateTimer() {
-    timeleft--;
-    document.getElementById("timer").textContent = timeleft;
+    document.getElementById("timer").textContent = "Time Left: " + timeleft;
+    if (timeleft === 0) {
+        endQuiz();
+    }
+    else {
+        timeleft--;
+    }
+
 }
+
 //    creates funtion to show the question
 function showQuestion(questionIndex) {
     var currentQuestion = quizQuestions[questionIndex];
@@ -91,4 +99,9 @@ function endQuiz() {
     answerOptions.style.display = "none";
     // show score
     resultDisplay.textContent = "Your score is " + score;
+   
+    timerDisplay.style.display = "none";
+    // show input and button
+    hiscoreDisplay.classList.remove("hidden");
+
 }
