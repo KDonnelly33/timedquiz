@@ -32,6 +32,8 @@ var timer;
 var timeleft;
 let currentQuestionIndex = 0;
 let score = 0;
+highscoreDisplay.style.display = "none";
+submitDisplay.style.display = "none";
 // when i click the start button the first question should appear
 startButton.addEventListener("click", function () {
     //    hide the start button
@@ -50,9 +52,7 @@ function updateTimer() {
     else {
         timeleft--;
     }
-
-}
-
+};
 //    creates funtion to show the question
 function showQuestion(questionIndex) {
     var currentQuestion = quizQuestions[questionIndex];
@@ -106,8 +106,8 @@ function endQuiz() {
 
     timerDisplay.style.display = "none";
     // show input and button
-    submitDisplay.classList.remove("hidden");
-    highscoreDisplay.classList.remove("hidden");
+    highscoreDisplay.style.display = "block";
+    submitDisplay.style.display = "block";
 }
 //  save initials and score to local storage and dislay on highscore page
 submitButton.addEventListener("click", function () {
@@ -138,10 +138,8 @@ goBackButton.addEventListener("click", function () {
     // hide score
     resultDisplay.textContent = "";
     // hide highscore list
-    highscoreDisplay.style.display = "none";
-    // hide input and button
     submitDisplay.style.display = "none";
-    // show timer
+    highscoreDisplay.style.display = "none";
     timerDisplay.style.display = "block";
     // reset timer
     timeleft = 60;
@@ -151,8 +149,8 @@ goBackButton.addEventListener("click", function () {
     currentQuestionIndex = 0;
     // show first question
     showQuestion(0);
-    // start timer
-    timer = setInterval(updateTimer, 1000);
+    
+
 });
 
 

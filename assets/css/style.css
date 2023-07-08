@@ -1,3 +1,10 @@
+* {
+    /* sets padding to 0; sets margin to ; */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 .hidden {
     display: none;
   }
@@ -9,6 +16,7 @@ h1 {
     color: blue;
     margin-top: 0;
     margin-bottom: 20px;
+    text-decoration: underline;
   }
 #start-button {
     margin: 0 auto;
@@ -43,7 +51,8 @@ h1 {
     font-size: 30px;
     font-weight: bold;
     color: blue;
-    margin-top: 0;
+    margin-right: 20px;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
   #result {
@@ -52,5 +61,35 @@ h1 {
     font-weight: bold;
     color: blue;
     margin-top: 0;
+    margin-bottom: 20px;
+  }
+  #submit {
+    margin: 0 auto;
+    display: block;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+ 
+    border-radius: 10px;
+  }
+  #submit-button {
+    margin: 0 auto;
+    display: block;
+    width: 200px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+   
+    border-radius: 10px;
+  }
+  #highscore {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: blue;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
