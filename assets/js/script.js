@@ -63,6 +63,7 @@ function showQuestion(questionIndex) {
 
     for (let i = 0; i < currentQuestion.options.length; i++) {
         var option = document.createElement("button");
+        option.classList.add("btn");
         option.textContent = currentQuestion.options[i];
         option.addEventListener("click", selectAnswer);
         answerOptions.appendChild(option);
@@ -110,24 +111,53 @@ function endQuiz() {
     submitDisplay.style.display = "block";
 }
 //  save initials and score to local storage and dislay on highscore page
-submitButton.addEventListener("click", function () {
+submitButton.addEventListener("click", function (event) {
     event.preventDefault();
     // get initials
-    var initials = document.getElementById("initials").value;
-    // save initials and score to local storage
-    localStorage.setItem("initials", initials);
-    localStorage.setItem("score", score);
-
+    var initials = document.getElementById("initials").value.trim();
+    if (initials === "") {
+        alert("Please enter your initials!")
+        return
+    }
+    var valueToSave = { initials, score }
+    var storage = localStorage.getItem("highscores");
+    if (storage === null) {
+        // save initials and score to local storage
+        localStorage.setItem("highscores", JSON.stringify([valueToSave]));
+        return
+    }
+    storage = JSON.parse(storage);
+    storage.push(valueToSave);
+    localStorage.setItem("highscores", JSON.stringify(storage));
     //    display initials and score in highscore list
-    var li = document.createElement("li");
-    li.textContent = initials + " - " + score;
-    scoreDisplay.appendChild(li);
+    loadHighscores();
     // hide submit button
     submitDisplay.style.display = "none";
     // show highscore list
     highscoreDisplay.style.display = "block";
 
 });
+
+function loadHighscores() {
+    var storage = localStorage.getItem("highscores");
+    if (storage === null) {
+        console.log("Storage empty, bug")
+        return
+    }
+    console.log("Storage not empty")
+    storage = JSON.parse(storage);
+
+    storage.sort((elementOne, elementTwo) => elementTwo.score - elementOne.score)
+    console.log(storage)
+    scoreDisplay.innerHTML = "";
+    for (let i = 0; i < storage.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = storage[i].initials + " - " + storage[i].score;
+        scoreDisplay.appendChild(li);
+        console.log(li)
+    }
+    // li.textContent = initials + " - " + score;
+}
 
 // have go back button start quiz over
 goBackButton.addEventListener("click", function () {
@@ -149,8 +179,9 @@ goBackButton.addEventListener("click", function () {
     currentQuestionIndex = 0;
     // show first question
     showQuestion(0);
-    
+
 
 });
 
 
+loadHighscores();
