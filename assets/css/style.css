@@ -68,9 +68,9 @@ h1 {
     font-weight: bold;
     color: white;
  
-    border-radius: 10px;
   }
   #submit-button {
+
     margin: 0 auto;
     display: block;
     width: 200px;
@@ -78,8 +78,16 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     color: blue;
-   
     border-radius: 10px;
+  }
+  #initials {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: blue;
+    margin-top: 0;
+    margin-bottom: 20px;
+    align-items: center;
   }
   #highscore {
     text-align: center;
@@ -99,6 +107,6 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     color: white;
-   background-color: black;
+   background-color: blue;
     border-radius: 10px;
   }

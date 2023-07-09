@@ -182,6 +182,11 @@ goBackButton.addEventListener("click", function () {
 
 
 });
-
+// clear button to clear highscores from local storage
+var clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", function () {
+    localStorage.clear();
+    scoreDisplay.innerHTML = "";
+});
 
 loadHighscores();
