@@ -7,8 +7,8 @@ const quizQuestions = [
     },
     {
         question: "What is the correct HTML for referring to an external style sheet?",
-        options: ["<stylesheet>mystyle.css</stylesheet>", "<link rel='stylesheet' type='text/css' href='mystyle.css'>", "<style src='mystyle.css'>", "<link href='mystyle.css'>"],
-        answer: 1
+        options: ["<link rel='stylesheet' type='text/css' href='mystyle.css'>", "<stylesheet>mystyle.css</stylesheet>", "<style src='mystyle.css'>", "<css>mystyle.css</css>"],
+        answer: 0
     },
     {
         question: "Where in an HTML document is the correct place to refer to an external style sheet?",
@@ -16,21 +16,20 @@ const quizQuestions = [
         answer: 0
     },
     {
-        question: "Which HTML tag is used to define an internal style sheet?",
-        options: ["<style>", "<script>", "<css>", "<head>"],
-        answer: 0
-    },
-    {
-        question: "Which HTML attribute is used to define inline styles?",
-        options: ["font", "style", "class", "styles"],
+        question: "Where in an HTML document do you put the JavaScript?",
+        options: ["In the <head> section", "At the end of <body> section", "At the end of the document", "In the <footer> section"],
         answer: 1
-    },
-    {
-        question: "Which is the correct CSS syntax?",
-        options: ["{body:color=black;}", "{body;color:black;}", "body:color=black;", "body {color: black;}"],
-        answer: 3
-    }
-    // Add more questions here
+     },
+       {
+         question: "How do you create a function in JavaScript?",
+        options: ["function = myFunction()", "function myFunction()", "function:myFunction()", "function.myFunction()"],
+        answer: 1
+     },
+       {
+        question: "How do you store and value in local storage?",
+        options: ["localStorage.setItem('key', 'value')", "localStorage.getItem('key')", "localStorage.getItem('value')", "localStorage.setItem('value')"],
+        answer: 0
+        },
 ];
 // Define variables
 var startButton = document.getElementById("start-button");
