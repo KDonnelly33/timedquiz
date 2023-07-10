@@ -161,20 +161,16 @@ submitButton.addEventListener("click", function (event) {
 function loadHighscores() {
     var storage = localStorage.getItem("highscores");
     if (storage === null) {
-        console.log("Storage empty, bug")
         return
     }
-    console.log("Storage not empty")
-    storage = JSON.parse(storage);
 
+    storage = JSON.parse(storage);
     storage.sort((elementOne, elementTwo) => elementTwo.score - elementOne.score)
-    console.log(storage)
     scoreDisplay.innerHTML = "";
     for (let i = 0; i < storage.length; i++) {
         var li = document.createElement("li");
         li.textContent = storage[i].initials + " - " + storage[i].score;
         scoreDisplay.appendChild(li);
-        console.log(li)
     }
 
 }
