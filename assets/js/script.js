@@ -59,8 +59,6 @@ startButton.addEventListener("click", function () {
     timer = setInterval(updateTimer, 1000);
     // show question
     showQuestion(0);
-
-
 });
 // function to update timer and checks to see if times is up.. if so, end quiz
 function updateTimer() {
@@ -90,9 +88,9 @@ function showQuestion(questionIndex) {
 }
 // function to select answer
 function selectAnswer(event) {
-    const selectedOption = event.target;
-    const selectedAnswer = selectedOption.textContent;
-    const currentQuestion = quizQuestions[currentQuestionIndex];
+    var selectedOption = event.target;
+    var selectedAnswer = selectedOption.textContent;
+    var currentQuestion = quizQuestions[currentQuestionIndex];
     // logic to see if answer is correct and display result
     if (selectedAnswer === currentQuestion.options[currentQuestion.answer]) {
         resultDisplay.textContent = "Correct!";
