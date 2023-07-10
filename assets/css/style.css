@@ -1,112 +1,167 @@
 * {
-    /* sets padding to 0; sets margin to ; */
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  /* sets padding to 0; sets margin to ; */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 h1 {
-    text-align: center;
-    font-size: 50px;
-    font-weight: bold;
-    color: blue;
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-decoration: underline;
-  }
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: blue;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
 #start-button {
-    margin: 0 auto;
-    display: block;
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    background-color: blue;
-    border-radius: 10px;
-  }
+  margin: 0 auto;
+  display: block;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: blue;
+  border-radius: 10px;
+}
+
+#start-button:hover {
+  background-color: #1E90FF;
+}
+
 #question {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: blue;
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-/* centers and lines up answer buttons in a column */
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: blue;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+
 #answer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  /* adds style to timer and places it in the top right corner */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 #timer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 30px;
-    font-weight: bold;
-    color: blue;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  #result {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: blue;
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-  #submit {
-    margin: 0 auto;
-    display: block;
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
- 
-  }
-  #submit-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: blue;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
-    margin: 0 auto;
-    display: block;
-    width: 200px;
-    height: 35px;
-    font-size: 20px;
-    font-weight: bold;
-    color: blue;
-    border-radius: 10px;
-  }
-  #initials {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: blue;
-    margin-top: 0;
-    margin-bottom: 20px;
-    align-items: center;
-  }
-  #highscore {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: blue;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+#result {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: blue;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
 
-  .btn{
-    margin: 5px auto;
-    display: block;
-    padding: 4px;
-    min-width: 200px;
-    height: 35px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-   background-color: blue;
-    border-radius: 10px;
-  }
+#submit {
+
+  margin: 0 auto;
+  display: block;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+
+}
+
+#submit-button {
+
+  margin: 0 auto;
+  display: block;
+  width: 200px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+  border-radius: 10px;
+}
+
+#submit-button:hover {
+  background-color: #1E90FF;
+}
+
+#initials {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: blue;
+  margin-top: 0;
+  margin-bottom: 20px;
+  align-items: center;
+  width: 200px;
+}
+
+#highscore {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: blue;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin: 5px auto;
+  display: block;
+  padding: 4px;
+  min-width: 200px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: blue;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #1E90FF;
+}
+
+#clear {
+  margin: 5px auto;
+  display: block;
+  padding: 4px;
+  min-width: 200px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+  border-radius: 10px;
+}
+
+#clear:hover {
+  background-color: #1E90FF;
+}
+
+#go-back {
+  margin: 5px auto;
+  display: block;
+  padding: 4px;
+  min-width: 200px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+  border-radius: 10px;
+}
+
+#go-back:hover {
+  background-color: #1E90FF;
+}

@@ -14,6 +14,21 @@ const quizQuestions = [
         question: "Where in an HTML document is the correct place to refer to an external style sheet?",
         options: ["In the <head> section", "In the <body> section", "At the end of the document", "In the <footer> section"],
         answer: 0
+    },
+    {
+        question: "Which HTML tag is used to define an internal style sheet?",
+        options: ["<style>", "<script>", "<css>", "<head>"],
+        answer: 0
+    },
+    {
+        question: "Which HTML attribute is used to define inline styles?",
+        options: ["font", "style", "class", "styles"],
+        answer: 1
+    },
+    {
+        question: "Which is the correct CSS syntax?",
+        options: ["{body:color=black;}", "{body;color:black;}", "body:color=black;", "body {color: black;}"],
+        answer: 3
     }
     // Add more questions here
 ];
@@ -32,18 +47,23 @@ var timer;
 var timeleft;
 let currentQuestionIndex = 0;
 let score = 0;
+// hide highscore list
 highscoreDisplay.style.display = "none";
+//  hides submit button
 submitDisplay.style.display = "none";
-// when i click the start button the first question should appear
+// add event listener to start button
 startButton.addEventListener("click", function () {
     //    hide the start button
     startButton.style.display = "none";
-    // show the first question
+    // sets timer
     timeleft = 60;
     timer = setInterval(updateTimer, 1000);
+    // show question
     showQuestion(0);
+
+
 });
-// function to update timer
+// function to update timer and checks to see if times is up.. if so, end quiz
 function updateTimer() {
     document.getElementById("timer").textContent = "Time Left: " + timeleft;
     if (timeleft === 0) {
@@ -74,7 +94,7 @@ function selectAnswer(event) {
     const selectedOption = event.target;
     const selectedAnswer = selectedOption.textContent;
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    // logic to see if answer is correct
+    // logic to see if answer is correct and display result
     if (selectedAnswer === currentQuestion.options[currentQuestion.answer]) {
         resultDisplay.textContent = "Correct!";
         score++;
@@ -83,9 +103,9 @@ function selectAnswer(event) {
         resultDisplay.textContent = "Incorrect!";
         timeleft -= 10;
     }
-
+    // increases question index
     currentQuestionIndex++;
-    //  checks to see if quiz is over and shows next question
+    //  checks to see if quiz is over and shows next question.. ends quiz if no more questions
 
     if (currentQuestionIndex < quizQuestions.length) {
         showQuestion(currentQuestionIndex);
@@ -104,7 +124,7 @@ function endQuiz() {
     answerOptions.style.display = "none";
     // show score
     resultDisplay.textContent = "Your score is " + score;
-
+    // hide timer
     timerDisplay.style.display = "none";
     // show input and button
     highscoreDisplay.style.display = "block";
@@ -137,7 +157,7 @@ submitButton.addEventListener("click", function (event) {
     highscoreDisplay.style.display = "block";
 
 });
-
+// function to load highscores and display them and save to local storage
 function loadHighscores() {
     var storage = localStorage.getItem("highscores");
     if (storage === null) {
@@ -156,7 +176,7 @@ function loadHighscores() {
         scoreDisplay.appendChild(li);
         console.log(li)
     }
-    // li.textContent = initials + " - " + score;
+
 }
 
 // have go back button start quiz over
