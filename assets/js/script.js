@@ -134,14 +134,14 @@ submitButton.addEventListener("click", function (event) {
     var initials = document.getElementById("initials").value.trim();
     if (initials === "") {
         alert("Please enter your initials!")
-        return
+         return;
     }
     var valueToSave = { initials, score }
     var storage = localStorage.getItem("highscores");
     if (storage === null) {
         // save initials and score to local storage
         localStorage.setItem("highscores", JSON.stringify([valueToSave]));
-        return
+        return;
     }
     storage = JSON.parse(storage);
     storage.push(valueToSave);

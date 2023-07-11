@@ -4,17 +4,23 @@
   padding: 0;
   margin: 0;
 }
-
+/* declares custom variables */
+:root {
+  --dark: blue;
+  --light: #1E90FF;
+  --white: white;
+}
+/* sets font to 50px color and syle */
 h1 {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   margin-top: 0;
   margin-bottom: 20px;
   text-decoration: underline;
 }
-
+/* sets size and style of start button */
 #start-button {
   margin: 0 auto;
   display: block;
@@ -22,101 +28,98 @@ h1 {
   height: 50px;
   font-size: 20px;
   font-weight: bold;
-  color: white;
-  background-color: blue;
+  color: var(--white);
+  background-color: var(--dark);
   border-radius: 10px;
 }
-
+/* sets background color hover */
 #start-button:hover {
-  background-color: #1E90FF;
+  background-color: var(--light);
 }
-
+/* sets font size to 30px and bold;  */
 #question {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   margin-top: 0;
   margin-bottom: 20px;
 }
 
-
+/* dislplays answers in a column and center of page */
 #answer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-
+/* syle and positioning of timer */
 #timer {
   position: absolute;
   top: 0;
   right: 0;
   font-size: 30px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   margin-right: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
+/* sets size of result to 40 px and centers text  */
 #result {
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   margin-top: 0;
   margin-bottom: 20px;
 }
-
+/* sets height and width and style */
 #submit {
-
   margin: 0 auto;
   display: block;
   width: 200px;
   height: 50px;
   font-size: 20px;
   font-weight: bold;
-  color: white;
-
+  color: var(--white);
 }
-
+/* style to submit button */
 #submit-button {
-
   margin: 0 auto;
   display: block;
   width: 200px;
   height: 35px;
   font-size: 20px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   border-radius: 10px;
 }
-
+/* creats hover for background color of submbit button*/
 #submit-button:hover {
-  background-color: #1E90FF;
+  background-color: var(--light);
 }
-
+/* sets size and style of input initials box */
 #initials {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   margin-top: 0;
   margin-bottom: 20px;
   align-items: center;
   width: 200px;
 }
-
+/* sets size and style of highscore */
 #highscore {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   margin-top: 40px;
   margin-bottom: 20px;
 }
-
+/* sets style and size of generated buttons */
 .btn {
   margin: 5px auto;
   display: block;
@@ -125,15 +128,15 @@ h1 {
   height: 35px;
   font-size: 20px;
   font-weight: bold;
-  color: white;
-  background-color: blue;
+  color: var(--white);
+  background-color: var(--dark);
   border-radius: 10px;
 }
-
+/* gives a background color change on hover */
 .btn:hover {
-  background-color: #1E90FF;
+  background-color: var(--light);
 }
-
+/* sets style and size of clear button */
 #clear {
   margin: 5px auto;
   display: block;
@@ -142,14 +145,14 @@ h1 {
   height: 35px;
   font-size: 20px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   border-radius: 10px;
 }
-
+/* gives background color on hover of clear button */
 #clear:hover {
-  background-color: #1E90FF;
+  background-color: var(--light);
 }
-
+/* sets style and size to retake quiz button */
 #go-back {
   margin: 5px auto;
   display: block;
@@ -158,10 +161,10 @@ h1 {
   height: 35px;
   font-size: 20px;
   font-weight: bold;
-  color: blue;
+  color: var(--dark);
   border-radius: 10px;
 }
-
+/* sets background color on hover of retake button */
 #go-back:hover {
-  background-color: #1E90FF;
+  background-color: var(--light);
 }
