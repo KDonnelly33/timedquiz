@@ -12,8 +12,8 @@ const quizQuestions = [
     },
     {
         question: "Where in an HTML document is the correct place to refer to an external style sheet?",
-        options: ["In the <head> section", "In the <body> section", "At the end of the document", "In the <footer> section"],
-        answer: 0
+        options: [ "In the <body> section", "At the end of the document", "In the <head> section", "In the <footer> section"],
+        answer: 2
     },
     {
         question: "Where in an HTML document do you put the JavaScript?",
@@ -27,8 +27,8 @@ const quizQuestions = [
      },
        {
         question: "How do you store and value in local storage?",
-        options: ["localStorage.setItem('key', 'value')", "localStorage.getItem('key')", "localStorage.getItem('value')", "localStorage.setItem('value')"],
-        answer: 0
+        options: ["localStorage.getItem('key')", "localStorage.getItem('value')", "localStorage.setItem('value')", "localStorage.setItem('key', 'value')"],
+        answer: 3
         },
 ];
 // Define variables
