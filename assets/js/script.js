@@ -132,36 +132,27 @@ submitButton.addEventListener("click", function (event) {
     event.preventDefault();
     // get initials
     var initials = document.getElementById("initials").value.trim();
-    if (initials === "") {
+    if (!initials) {
         alert("Please enter your initials!")
          return;
     }
     var valueToSave = { initials, score }
-    var storage = localStorage.getItem("highscores");
-    if (storage === null) {
-        // save initials and score to local storage
-        localStorage.setItem("highscores", JSON.stringify([valueToSave]));
-        return;
-    }
-    storage = JSON.parse(storage);
+    var storage = JSON.parse(localStorage.getItem("highscores")) || [];
     storage.push(valueToSave);
     localStorage.setItem("highscores", JSON.stringify(storage));
-    //    display initials and score in highscore list
-    loadHighscores();
     // hide submit button
     submitDisplay.style.display = "none";
     // show highscore list
     highscoreDisplay.style.display = "block";
-
+    //    display initials and score in highscore list
+    loadHighscores();
 });
 // function to load highscores and display them and save to local storage
 function loadHighscores() {
-    var storage = localStorage.getItem("highscores");
-    if (storage === null) {
+    var storage = JSON.parse(localStorage.getItem("highscores"));
+    if (!storage) {
         return
     }
-
-    storage = JSON.parse(storage);
     storage.sort((elementOne, elementTwo) => elementTwo.score - elementOne.score)
     scoreDisplay.innerHTML = "";
     for (let i = 0; i < storage.length; i++) {
@@ -195,6 +186,7 @@ goBackButton.addEventListener("click", function () {
 
 
 });
+
 // clear button to clear highscores from local storage
 var clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", function () {
